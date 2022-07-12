@@ -15,13 +15,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo'),
+      home:  const MyHomePage(title: 'Flutter Demo'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -33,48 +33,18 @@ class _MyHomePageState extends State<MyHomePage> {
   List tabs = ["最新", "最热", "学校"];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Center(
-      child: MyNews(),
-    ));
+    return ListView.builder(
+                   
+                    itemBuilder: (context, index) {
+                      return MyNews();
+                    }
+                  );
   }
 }
-//  ListView(
-
-/*DefaultTabController(
-      length: tabs.length,
-      child: Scaffold(
-        appBar: AppBar(
-         // title: Text("App Name"),
-          bottom: TabBar(
-            tabs: tabs.map((e) => Tab(text: e)).toList(),
-          ),
-        ),
-        body: TabBarView( //构建
-          children: tabs.map((e) {
-            return 
-           // KeepAliveWrapper(
-           //   child: 
-              Container(
-                alignment: Alignment.center,
-                child: 
-               // MyNews(),
-                Text(e, textScaleFactor: 5),
-              );
-           //   ,           );
-          }).toList(),
-        ),
-      ),
-    ),*/
-
-/*class TabViewRoute2 extends StatelessWidget {
-  const TabViewRoute2({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-   
-  }
-}*/
+/*Scaffold(
+        body: Center(
+      child: MyNews(),
+    ));*/
 
 const List<String> list = ["要闻", "学术", "综合", "院系", "学者学生", "媒体"];
 Widget photo = Image.asset("images/fu.png", width: 110.0);
@@ -90,7 +60,7 @@ class MyNews extends StatelessWidget {
   final String kinds = list[0];
   final int tem = 0;
 
-  MyNews({Key? key}) : super(key: key);
+  MyNews( {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -119,21 +89,21 @@ class MyNews extends StatelessWidget {
               left: 5.0,
               top: 5.0,
               child: SizedBox(
-                width: 150,
-                height: 140,
+                width: 100,
+                height: 50,
                 child: Text(
                   title,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: Colors.black,
-                    fontSize: 15.0,
+                    fontSize: 25.0,
                     height: 3.2,
                   ),
                 ),
               )),
           Positioned(
             right: 5.0,
-            top: 150.0,
+            top: 60.0,
             child: SizedBox(
               width: 150,
               height: 100,
@@ -142,7 +112,7 @@ class MyNews extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                   color: Colors.grey,
-                  fontSize: 10.0,
+                  fontSize: 20.0,
                   height: 2.0,
                 ),
               ),
@@ -161,7 +131,7 @@ class MyNews extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         color: Colors.black,
-                        fontSize: 8.0,
+                        fontSize: 18.0,
                         height: 1.0,
                       ),
                     ),
@@ -176,7 +146,7 @@ class MyNews extends StatelessWidget {
           Positioned(
             child: SizedBox(
               width: 80,
-              height: 200,
+              height: 150,
               child: photo,
             ),
             top: 5.0,
@@ -189,7 +159,7 @@ class MyNews extends StatelessWidget {
               "热度" + tem.toString(),
               style: const TextStyle(
                 color: Colors.black,
-                fontSize: 10.0,
+                fontSize: 20.0,
                 height: 1.8,
               ),
             ),
